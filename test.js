@@ -34,12 +34,11 @@ function setup(){
 
 function modelLoaded(){
     console.log("MODEL HAS BEEN LOADED!"); 
-    classify(); 
 }
 
 
-function classify(){
-    pieceClassifier.classify({image: video}, gotResults); 
+function mousePressed(){
+pieceClassifier.classify({image: video}, gotResults); 
 }
 
 
@@ -50,7 +49,6 @@ function gotResults(err, result){
     }
     console.log(result[0].label, `${result[0].confidence*100}%`); 
     resultText.html(`${result[0].label} ${result[0].confidence * 100}%`); 
-    classify(); 
 }
 
 

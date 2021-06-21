@@ -7,15 +7,14 @@ let rook = [];
 
 
 function preload(){
-    for(let i = 0; i<24; i++){
-        bishop[i] = loadImage(`data/bishop/${i+1}compressedbishop.png`);
-        king[i] = loadImage(`data/king/${i+1}compressedking.png`);
-        knight[i] = loadImage(`data/knight/${i+1}compressedknight.png`);
-        pawn[i] = loadImage(`data/pawn/${i+1}compressedpawn.png`);
-        queen[i] = loadImage(`data/queen/${i+1}compressedqueen.png`);
-        rook[i] = loadImage(`data/rook/${i+1}compressedrook.png`);
+    for(let i = 0; i<180; i++){
+        bishop[i] = loadImage(`data/bishop/augmented_bishop_${i}.png`);
+        king[i] = loadImage(`data/king/augmented_king_${i}.png`);
+        knight[i] = loadImage(`data/knight/augmented_knight_${i}.png`);
+        pawn[i] = loadImage(`data/pawn/augmented_pawn_${i}.png`);
+        queen[i] = loadImage(`data/queen/augmented_queen_${i}.png`);
+        rook[i] = loadImage(`data/rook/augmented_rook_${i}.png`);
     }
-    pawn[24] = loadImage(`data/pawn/25compressedpawn.png`); 
 }
 
 let pieceClassifier; 
@@ -41,7 +40,6 @@ function setup(){
 
     }
 
-    pieceClassifier.addData({ image: pawn[24] }, { label: 'pawn' }); 
 
     pieceClassifier.normalizeData(); 
     pieceClassifier.train({ epochs: 50 }, trainingFinished); 

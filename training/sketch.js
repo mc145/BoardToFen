@@ -7,7 +7,7 @@ let rook = [];
 
 
 function preload(){
-    for(let i = 0; i<220; i++){
+    for(let i = 0; i<100; i++){
         bishop[i] = loadImage(`data/bishop/augmented_bishop_${i}.png`);
         king[i] = loadImage(`data/king/augmented_king_${i}.png`);
         knight[i] = loadImage(`data/knight/augmented_knight_${i}.png`);
@@ -40,9 +40,14 @@ function setup(){
 
     }
 
+    const trainingOptions = {
+        epochs: 40,
+        batchSize: 16
+    }; 
+
 
     pieceClassifier.normalizeData(); 
-    pieceClassifier.train({ epochs: 40 }, trainingFinished); 
+    pieceClassifier.train(trainingOptions, trainingFinished); 
 }
 
 

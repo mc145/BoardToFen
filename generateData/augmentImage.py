@@ -32,7 +32,7 @@ available_transformations = {
 def augment_image(piece_name):
 
     folder_path = '/home/mc145/Programming/BoardToFen/generateData/data_compressed/%s' % (piece_name)
-    num_files_desired = 250 
+    num_files_desired = 120 
 
 # find all files paths from the folder
     images = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]

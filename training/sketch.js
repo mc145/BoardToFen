@@ -30,7 +30,7 @@ function setup(){
     }; 
 
     pieceClassifier = ml5.neuralNetwork(options); 
-
+ 
     for(let i = 0; i<bishop.length; i++){
         pieceClassifier.addData({ image: bishop[i] }, { label: 'bishop' }); 
         pieceClassifier.addData({ image: king[i] }, { label: 'king' }); 

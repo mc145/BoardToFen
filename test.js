@@ -23,9 +23,9 @@ function setup(){
 
     pieceClassifier = ml5.neuralNetwork(options); 
     const modelDetails = {
-        model: 'model1.0.2/model.json',
-        metadata: 'model1.0.2/model_meta.json',
-        weights: 'model1.0.2/model.weights.bin'
+        model: 'model1.0.3/model.json',
+        metadata: 'model1.0.3/model_meta.json',
+        weights: 'model1.0.3/model.weights.bin'
     }; 
     pieceClassifier.load(modelDetails, modelLoaded); 
     resultText = createDiv('loading model'); 
@@ -34,10 +34,11 @@ function setup(){
 
 function modelLoaded(){
     console.log("MODEL HAS BEEN LOADED!"); 
+    classify(); 
 }
 
 
-function mousePressed(){
+function classify(){
 pieceClassifier.classify({image: video}, gotResults); 
 }
 
@@ -49,6 +50,7 @@ function gotResults(err, result){
     }
     console.log(result[0].label, `${result[0].confidence*100}%`); 
     resultText.html(`${result[0].label} ${result[0].confidence * 100}%`); 
+    classify(); 
 }
 
 

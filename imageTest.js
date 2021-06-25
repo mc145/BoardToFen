@@ -23,9 +23,9 @@ function setup(){
 
     pieceClassifier = ml5.neuralNetwork(options); 
     const modelDetails = {
-        model: `../model1.0.${modelNumber}/model.json`,
-        metadata: `../model1.0.${modelNumber}/model_meta.json`,
-        weights: `../model1.0.${modelNumber}/model.weights.bin`
+        model: `model1.0.${modelNumber}/model.json`,
+        metadata: `model1.0.${modelNumber}/model_meta.json`,
+        weights: `model1.0.${modelNumber}/model.weights.bin`
     }; 
     pieceClassifier.load(modelDetails, modelLoaded); 
     resultText = createDiv('loading model'); 

@@ -6,7 +6,7 @@ const modelNumber = 6;
 
 let photo; 
 function preload(){
-    photo = loadImage('data/photo.png'); 
+    photo = loadImage('testing/data/photo.png'); 
 }
 
 function setup(){

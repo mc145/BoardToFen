@@ -1,20 +1,20 @@
 let pieceClassifier; 
 let resultText; 
 
-let video; 
 
-//let testingKnight; 
+const modelNumber = 6; 
 
+let photo; 
 function preload(){
-    //testingKnight = loadImage('testingdata/knight.png'); 
+    photo = loadImage('data/photo.png'); 
 }
 
 function setup(){
     createCanvas(400,400);
-    video = createCapture(VIDEO); 
-    video.size(64,64);  
-   // image(testingKnight, 0, 0); 
-    
+    image(photo, 0, 0); 
+
+
+
     let options = {
         inputs: [64,64,4],
         task: 'imageClassification',
@@ -23,9 +23,9 @@ function setup(){
 
     pieceClassifier = ml5.neuralNetwork(options); 
     const modelDetails = {
-        model: 'model1.0.5/model.json',
-        metadata: 'model1.0.5/model_meta.json',
-        weights: 'model1.0.5/model.weights.bin'
+        model: `../model1.0.${modelNumber}/model.json`,
+        metadata: `../model1.0.${modelNumber}/model_meta.json`,
+        weights: `../model1.0.${modelNumber}/model.weights.bin`
     }; 
     pieceClassifier.load(modelDetails, modelLoaded); 
     resultText = createDiv('loading model'); 
@@ -34,13 +34,14 @@ function setup(){
 
 function modelLoaded(){
     console.log("MODEL HAS BEEN LOADED!"); 
-    classify(); 
 }
 
 
-function classify(){
-pieceClassifier.classify({image: video}, gotResults); 
+function mousePressed(){
+
+pieceClassifier.classify({ image: photo }, gotResults); 
 }
+
 
 
 function gotResults(err, result){
@@ -50,12 +51,12 @@ function gotResults(err, result){
     }
     console.log(result[0].label, `${result[0].confidence*100}%`); 
     resultText.html(`${result[0].label} ${result[0].confidence * 100}%`); 
-    classify(); 
+   
 }
 
 
 
 
 function draw(){
-    image(video, 0, 0, width, height); 
+    image(photo, 0, 0, width, height); 
 }

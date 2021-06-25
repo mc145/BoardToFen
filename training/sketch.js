@@ -41,8 +41,8 @@ function setup(){
     }
 
     const trainingOptions = {
-        epochs: 40,
-        batchSize: 16
+        epochs: 35,
+        batchSize: 12
     }; 
 
 

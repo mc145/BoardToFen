@@ -1,19 +1,32 @@
-let bishop = []; 
-let king = []; 
-let knight = []; 
-let pawn = []; 
-let queen = []; 
-let rook = []; 
+let wbishop = []; 
+let wking = []; 
+let wknight = []; 
+let wpawn = []; 
+let wqueen = []; 
+let wrook = []; 
 
+let bbishop = []; 
+let bking = []; 
+let bknight = []; 
+let bpawn = []; 
+let bqueen = []; 
+let brook = []; 
 
 function preload(){
     for(let i = 0; i<100; i++){
-        bishop[i] = loadImage(`data/bishop/augmented_bishop_${i}.png`);
-        king[i] = loadImage(`data/king/augmented_king_${i}.png`);
-        knight[i] = loadImage(`data/knight/augmented_knight_${i}.png`);
-        pawn[i] = loadImage(`data/pawn/augmented_pawn_${i}.png`);
-        queen[i] = loadImage(`data/queen/augmented_queen_${i}.png`);
-        rook[i] = loadImage(`data/rook/augmented_rook_${i}.png`);
+        wbishop[i] = loadImage(`data/wbishop/augmented_wbishop_${i}.png`);
+        wking[i] = loadImage(`data/wking/augmented_wking_${i}.png`);
+        wknight[i] = loadImage(`data/wknight/augmented_wknight_${i}.png`);
+        wpawn[i] = loadImage(`data/wpawn/augmented_wpawn_${i}.png`);
+        wqueen[i] = loadImage(`data/wqueen/augmented_wqueen_${i}.png`);
+        wrook[i] = loadImage(`data/wrook/augmented_wrook_${i}.png`);
+
+        bbishop[i] = loadImage(`data/bbishop/augmented_bbishop_${i}.png`);
+        bking[i] = loadImage(`data/bking/augmented_bking_${i}.png`);
+        bknight[i] = loadImage(`data/bknight/augmented_bknight_${i}.png`);
+        bpawn[i] = loadImage(`data/bpawn/augmented_bpawn_${i}.png`);
+        bqueen[i] = loadImage(`data/bqueen/augmented_bqueen_${i}.png`);
+        brook[i] = loadImage(`data/brook/augmented_brook_${i}.png`);
     }
 }
 
@@ -30,13 +43,21 @@ function setup(){
 
     pieceClassifier = ml5.neuralNetwork(options); 
  
-    for(let i = 0; i<bishop.length; i++){
-        pieceClassifier.addData({ image: bishop[i] }, { label: 'bishop' }); 
-        pieceClassifier.addData({ image: king[i] }, { label: 'king' }); 
-        pieceClassifier.addData({ image: knight[i] }, { label: 'knight' }); 
-        pieceClassifier.addData({ image: pawn[i] }, { label: 'pawn' }); 
-        pieceClassifier.addData({ image: queen[i] }, { label: 'queen' }); 
-        pieceClassifier.addData({ image: rook[i] }, { label: 'rook' }); 
+    for(let i = 0; i<wbishop.length; i++){
+        pieceClassifier.addData({ image: wbishop[i] }, { label: 'white bishop' }); 
+        pieceClassifier.addData({ image: wking[i] }, { label: 'white king' }); 
+        pieceClassifier.addData({ image: wknight[i] }, { label: 'white knight' }); 
+        pieceClassifier.addData({ image: wpawn[i] }, { label: 'white pawn' }); 
+        pieceClassifier.addData({ image: wqueen[i] }, { label: 'white queen' }); 
+        pieceClassifier.addData({ image: wrook[i] }, { label: 'white rook' }); 
+
+        pieceClassifier.addData({ image: bbishop[i] }, { label: 'black bishop' }); 
+        pieceClassifier.addData({ image: bking[i] }, { label: 'black king' }); 
+        pieceClassifier.addData({ image: bknight[i] }, { label: 'black knight' }); 
+        pieceClassifier.addData({ image: bpawn[i] }, { label: 'black pawn' }); 
+        pieceClassifier.addData({ image: bqueen[i] }, { label: 'black queen' }); 
+        pieceClassifier.addData({ image: brook[i] }, { label: 'black rook' }); 
+
 
     }
 

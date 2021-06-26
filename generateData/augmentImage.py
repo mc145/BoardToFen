@@ -33,7 +33,7 @@ available_transformations = {
 
 def augment_image(piece_name):
 
-    folder_path = '/home/mc145/Programming/BoardToFen/generateData/data_compressed/%s' % (piece_name)
+    folder_path = '/home/mc145/Programming/BoardToFen/training/data/%s' % (piece_name)
     num_files_desired = 120 
 
 # find all files paths from the folder
@@ -63,9 +63,15 @@ def augment_image(piece_name):
         num_generated_files += 1
 
 
-augment_image('pawn')
-augment_image('knight')
-augment_image('bishop')
-augment_image('rook')
-augment_image('queen')
-augment_image('king')
+augment_image('wpawn')
+augment_image('wknight')
+augment_image('wbishop')
+augment_image('wrook')
+augment_image('wqueen')
+augment_image('wking')
+augment_image('bpawn')
+augment_image('bknight')
+augment_image('bbishop')
+augment_image('brook')
+augment_image('bqueen')
+augment_image('bking')

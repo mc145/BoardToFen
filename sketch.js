@@ -3,7 +3,7 @@ let numberClassified = 0;
 //let resultText; 
 
 
-const modelNumber = 9; 
+const modelNumber = 10; 
 
 let boardPhotos = []; 
 function preload(){
@@ -54,8 +54,23 @@ function gotResults(err, result){
         console.log(err);
         return; 
     }
-    if(result[0].confidence < 0.989 && (result[0].label == 'white queen' || result[0].label == 'white king')){
+    if(result[0].label == 'WQUEEN' && result[0].confidence < 0.989 && result[0].confidence > 0.80){
         console.log("BLANK", `${result[0].confidence * 100}%`); 
+        classifyImage(); 
+        return; 
+    }
+    if(result[0].label == 'WKING' && result[0].confidence < 0.956){
+        console.log("BLANK", `${result[0].confidence * 100}%`); 
+        classifyImage(); 
+        return; 
+    }
+    if(result[0].label == 'BKNIGHT' && result[0].confidence < 0.70){
+        console.log("BROOK", `${result[0].confidence * 100}%`); 
+        classifyImage(); 
+        return; 
+    }
+    if(result[0].label == 'WQUEEN' && result[0].confidence < 0.80){
+        console.log("WQUEEN", `${result[0].confidence * 100}%`); 
         classifyImage(); 
         return; 
     }

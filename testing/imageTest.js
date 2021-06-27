@@ -2,7 +2,7 @@ let pieceClassifier;
 let resultText; 
 
 
-const modelNumber = 6; 
+const modelNumber = 10; 
 
 let photo; 
 function preload(){

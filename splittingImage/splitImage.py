@@ -11,11 +11,22 @@ def tile(filename, dir_in, dir_out, d):
     w, h = img.size
     
     grid = list(product(range(0, h-h%d, d), range(0, w-w%d, d)))
+    print(grid)
     for i, j in grid:
         box = (j, i, j+d, i+d)
+      #  print(j, i, j+d, i+d)
         out = os.path.join(dir_out, f'{name}_{counter}_{ext}')
         img.crop(box).save(out)
         counter += 1
+#    last = int(7*w/8) - 5
+
+ #   for i in range(0, 8): 
+  #      box = (d*i, last, d*i + d, last + d)
+   #     print(last, d*i, last+d, d*i + d)
+    #    out = os.path.join(dir_out, f'{name}_{counter}_{ext}')
+     #   img.crop(box).save(out)
+      #  counter+=1
+
 
 
 filename = '/home/mc145/Programming/BoardToFen/splittingImage/start.png'

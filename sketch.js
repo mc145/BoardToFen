@@ -3,7 +3,7 @@ let numberClassified = 0;
 //let resultText; 
 
 
-const modelNumber = 6; 
+const modelNumber = 9; 
 
 let boardPhotos = []; 
 function preload(){
@@ -54,7 +54,7 @@ function gotResults(err, result){
         console.log(err);
         return; 
     }
-    if(result[0].confidence < 0.989){
+    if(result[0].confidence < 0.989 && (result[0].label == 'white queen' || result[0].label == 'white king')){
         console.log("BLANK", `${result[0].confidence * 100}%`); 
         classifyImage(); 
         return; 

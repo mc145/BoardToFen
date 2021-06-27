@@ -33,7 +33,7 @@ available_transformations = {
 
 def augment_image(piece_name):
 
-    folder_path = '/home/mc145/Programming/BoardToFen/training/data/%s' % (piece_name)
+    folder_path = '/home/mc145/Programming/BoardToFen/generateData/compressed_data/%s' % (piece_name)
     num_files_desired = 120 
 
 # find all files paths from the folder
@@ -56,19 +56,19 @@ def augment_image(piece_name):
             transformed_image = available_transformations[key](image_to_transform)
             num_transformations += 1
 
-            new_file_path = '/home/mc145/Programming/BoardToFen/generateData/data/%s/augmented_%s_%s.png' % (piece_name, piece_name, num_generated_files)
+            new_file_path = '/home/mc145/Programming/BoardToFen/training/data/%s/augmented_%s_%s.png' % (piece_name, piece_name, num_generated_files)
 
             # write image to the disk
             io.imsave(new_file_path, transformed_image)
         num_generated_files += 1
 
 
-augment_image('wpawn')
-augment_image('wknight')
-augment_image('wbishop')
-augment_image('wrook')
-augment_image('wqueen')
-augment_image('wking')
+#augment_image('wpawn')
+#augment_image('wknight')
+#augment_image('wbishop')
+#augment_image('wrook')
+#augment_image('wqueen')
+#augment_image('wking')
 augment_image('bpawn')
 augment_image('bknight')
 augment_image('bbishop')

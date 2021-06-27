@@ -12,8 +12,9 @@ let bpawn = [];
 let bqueen = []; 
 let brook = []; 
 
+let blank = []; 
 function preload(){
-    for(let i = 0; i<100; i++){
+    for(let i = 0; i<60; i++){
         wbishop[i] = loadImage(`data/wbishop/augmented_wbishop_${i}.png`);
         wking[i] = loadImage(`data/wking/augmented_wking_${i}.png`);
         wknight[i] = loadImage(`data/wknight/augmented_wknight_${i}.png`);
@@ -27,6 +28,10 @@ function preload(){
         bpawn[i] = loadImage(`data/bpawn/augmented_bpawn_${i}.png`);
         bqueen[i] = loadImage(`data/bqueen/augmented_bqueen_${i}.png`);
         brook[i] = loadImage(`data/brook/augmented_brook_${i}.png`);
+    }
+
+    for(let i = 0; i<43; i++){
+        blank[i] = loadImage(`data/blank/blank${i+1}.png`); 
     }
 }
 
@@ -58,6 +63,11 @@ function setup(){
         pieceClassifier.addData({ image: bqueen[i] }, { label: 'black queen' }); 
         pieceClassifier.addData({ image: brook[i] }, { label: 'black rook' }); 
 
+
+    }
+
+    for(let i = 0; i<blank.length; i++){
+        pieceClassifier.addData({ image: blank[i] }, { label: 'BLANK' }); 
 
     }
 

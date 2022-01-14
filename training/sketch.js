@@ -15,23 +15,44 @@ let brook = [];
 
 let blank = []; 
 function preload(){
-    for(let i = 0; i<110; i++){
-        wbishop[i] = loadImage(`data/wbishop/augmented_bishop_${i}.png`);
-        wking[i] = loadImage(`data/wking/augmented_king_${i}.png`);
-        wknight[i] = loadImage(`data/wknight/augmented_knight_${i}.png`);
-        wpawn[i] = loadImage(`data/wpawn/augmented_pawn_${i}.png`);
-        wqueen[i] = loadImage(`data/wqueen/augmented_queen_${i}.png`);
-        wrook[i] = loadImage(`data/wrook/augmented_rook_${i}.png`);
-
-        bbishop[i] = loadImage(`data/bbishop/augmented_bbishop_${i}.png`);
-        bking[i] = loadImage(`data/bking/augmented_bking_${i}.png`);
-        bknight[i] = loadImage(`data/bknight/augmented_bknight_${i}.png`);
-        bpawn[i] = loadImage(`data/bpawn/augmented_bpawn_${i}.png`);
-        bqueen[i] = loadImage(`data/bqueen/augmented_bqueen_${i}.png`);
-        brook[i] = loadImage(`data/brook/augmented_brook_${i}.png`);
+    for(let i = 0; i<19; i++){
+        wbishop[i] = loadImage(`data/wbishop/${i+1}compressedwbishop.png`);
+    } 
+    for(let i = 0; i<16; i++){
+        wking[i] = loadImage(`data/wking/${i+1}compressedwking.png`);
+    } 
+    for(let i = 0; i<20; i++){
+        wknight[i] = loadImage(`data/wknight/${i+1}compressedwknight.png`);
+    }
+    for(let i = 0; i<21; i++){
+        wpawn[i] = loadImage(`data/wpawn/${i+1}compressedwpawn.png`);
+    } 
+    for(let i = 0; i<19; i++){
+        wqueen[i] = loadImage(`data/wqueen/${i+1}compressedwqueen.png`);
+    } 
+    for(let i = 0; i<22; i++){
+        wrook[i] = loadImage(`data/wrook/${i+1}compressedwrook.png`);
+    } 
+    for(let i = 0; i<19; i++){
+        bbishop[i] = loadImage(`data/bbishop/${i+1}compressedbbishop.png`);
+    } 
+    for(let i = 0; i<15; i++){
+        bking[i] = loadImage(`data/bking/${i+1}compressedbking.png`);
+    } 
+    for(let i = 0; i<17; i++){
+        bknight[i] = loadImage(`data/bknight/${i+1}compressedbknight.png`);
+    } 
+    for(let i = 0; i<17; i++){
+        bpawn[i] = loadImage(`data/bpawn/${i+1}compressedbpawn.png`);
+    } 
+    for(let i = 0; i<19; i++){
+        bqueen[i] = loadImage(`data/bqueen/${i+1}compressedbqueen.png`); 
+    } 
+    for(let i = 0; i<19; i++){
+        brook[i] = loadImage(`data/brook/${i+1}compressedbrook.png`);
     }
 
-}
+} 
 
 let pieceClassifier; 
 
@@ -48,28 +69,50 @@ function setup(){
 
     console.log(wbishop.length); 
  
-    for(let i = 0; i<wbishop.length; i++){
+    for(let i = 0; i<19; i++){
         pieceClassifier.addData({ image: wbishop[i] }, { label: 'WBISHOP' }); 
+    } 
+    for(let i = 0; i<16; i++){
         pieceClassifier.addData({ image: wking[i] }, { label: 'WKING' }); 
+    } 
+    for(let i = 0; i<20; i++){
         pieceClassifier.addData({ image: wknight[i] }, { label: 'WKNIGHT' }); 
+    } 
+    for(let i = 0; i<21; i++){
         pieceClassifier.addData({ image: wpawn[i] }, { label: 'WPAWN' }); 
+    } 
+    for(let i = 0; i<19; i++){
         pieceClassifier.addData({ image: wqueen[i] }, { label: 'WQUEEN' }); 
+    } 
+    for(let i = 0; i<22; i++){
         pieceClassifier.addData({ image: wrook[i] }, { label: 'WROOK' }); 
-
-        pieceClassifier.addData({ image: bbishop[i] }, { label: 'BBISHOP' }); 
+    } 
+    for(let i = 0; i<19; i++){       
+        pieceClassifier.addData({ image: bbishop[i] }, { label: 'BBISHOP' });
+    } 
+    for(let i = 0; i<15; i++){ 
         pieceClassifier.addData({ image: bking[i] }, { label: 'BKING' }); 
+    } 
+    for(let i = 0; i<17; i++){
         pieceClassifier.addData({ image: bknight[i] }, { label: 'BKNIGHT' }); 
+    } 
+    for(let i = 0; i<17; i++){
         pieceClassifier.addData({ image: bpawn[i] }, { label: 'BPAWN' }); 
+    } 
+    for(let i = 0; i<19; i++){
         pieceClassifier.addData({ image: bqueen[i] }, { label: 'BQUEEN' }); 
+    } 
+    for(let i = 0; i<19; i++){
         pieceClassifier.addData({ image: brook[i] }, { label: 'BROOK' }); 
+    } 
 
 
-    }
+    
 
 
 
     const trainingOptions = {
-        epochs: 60,
+        epochs: 40,
         batchSize: 12
     }; 
 
